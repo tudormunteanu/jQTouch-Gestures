@@ -19,3 +19,10 @@ var actions = {
 };
 $('.my_selector').bindGestures(actions);
 </pre>
+
+
+The parameters that the callback functions receive are:
+
+*scale* - amount scaled since the gesture started  
+*rotation* - amount of rotation. The angle is in degrees, where clockwise is positive and counterclockwise is negative.
+*event* - jQuery event that's triggered. To acces the original event use *event.originalEvent*. You can also access the element that has been touched with *event.originalEvent.target*
