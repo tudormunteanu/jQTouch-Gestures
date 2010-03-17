@@ -1,0 +1,82 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Grokking.it</title>
+        <style type="text/css" media="screen">@import "css/jqtouch.css";</style>
+        <style type="text/css" media="screen">@import "css/themes/jqt/theme.css";</style>
+        <style type="text/css" media="screen">
+            div.prop{
+                height: 200px;
+                line-height: 200px;
+                margin: 20px auto;
+                text-align: center;
+                width: 200px;
+            }
+            div.guitar{
+                background: white url('img/guitar.png') no-repeat 40px 30px;
+            }
+            div.drum{
+                background: white url('img/drum.png') no-repeat 5px 0;
+                height: 128px;
+                width: 128px;
+            }
+        </style>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="js/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+        <script src="js/jqt.gestures.js" type="application/x-javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            var jQT = new $.jQTouch({
+                statusBar: 'black',
+                useFastTouch: false
+            });
+            
+            $(function(){
+                    var actions = {
+                        onGestureStart: function(scale, rotation, event){
+                            $(event.originalEvent.target).css('background-color', 'red');
+                        },
+                        // don't forget the come after object properties and methods
+                        onGestureChange: function(scale, rotation, e){
+                            e.originalEvent.target.style.webkitTransform = 'rotate(' + rotation + 'deg)';
+                        },
+                        onGestureEnd: function(s,r,e){ 
+                            $(e.originalEvent.target).css('background-color', 'white');
+                        }
+                    };
+                    $('div.guitar').bindGestures(actions);
+
+
+                    var actions2 = {
+                        onGestureStart: function(scale, rotation, event){
+                            $(event.originalEvent.target).css('background-color', 'blue');
+                        },
+                        onGestureChange: function(scale, rotation, e){
+                            e.originalEvent.target.style.webkitTransform = 'scale(' + scale + ')';
+                        },
+                        onGestureEnd: function(s,r,e){ 
+                            $(e.originalEvent.target).css('background-color', 'white');
+                        }
+                    };
+                    $('div.drum').bindGestures(actions2);
+                    });
+        </script>
+    </head>
+    <body>
+        <div class="fulscreen" id="jqt">
+            <div id="home">
+                <div class="toolbar">
+                    <h1>Gestures Demo</h1>
+                </div>
+                <div class="info">
+                    Guitars are meant to be rotated. Give it a try.
+                </div>
+                <div class="guitar prop"> </div>
+                <div class="info">
+                    Make this drum any size you want. You don't belive me?
+                </div>
+                <div class="drum prop"> </div>
+            </div>
+        </div>
+    </body>
+</html>
