@@ -4,8 +4,7 @@ More detail on built-in event handling in Mobile Safari can be gound here: http:
 
 Usage example:
 
-bc.. 
-var actions = {
+bc..  var actions = {
 	onGestureStart: function(scale, rotation, event){
 		// do stuff when the event started
 	},
