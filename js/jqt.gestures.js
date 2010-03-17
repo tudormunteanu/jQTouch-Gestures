@@ -1,3 +1,11 @@
+/*
+ * jQTouch Gestures extension
+ *
+ * Built and maintaned by Tudor M.
+ * email: tudor@grokprojects.com
+ * stalk me: twitter.com/tudorizer
+ *
+ */
 (function($) {
 	if ($.jQTouch)
 	{
